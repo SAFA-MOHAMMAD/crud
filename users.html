@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Page</title>
+    <style>   
+        body {
+            background: #d3d3d3; 
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f4f4f9;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: 50px;
+            background-color: rgb(59, 192, 225);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .company-name {
+            margin-left: 15px;
+            font-size: 24px;
+            color: black; /* Changed to black */
+            font-weight: bold;
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: rgb(59, 192, 225);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #333;
+        }
+
+        .add-user-container {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px 10%;
+        }
+
+        .add-user-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            color: white;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .add-user-btn:hover {
+            background-color: darkgreen;
+        }
+
+        .endTable {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: navy;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        td {
+            background-color: #f0f0f0; 
+            color: black;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        tr:hover td {
+            background-color: #e0e0e0; 
+        }
+
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo">L</div>
+            <div class="company-name">Welcome</div>
+        </div>
+        <nav class="nav">
+            <a href="home.html">Home</a>
+            <a href="users.html">Students</a>
+            <a href="about.html">About</a>
+            <a href="index.html" style="color: red;">Logout</a>
+        </nav>
+    </header>
+
+    <div class="add-user-container">
+        <a href="create.html" class="add-user-btn">+</a>
+    </div>
+
+    <div class="endTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>1</td>
+                <td>safa</td>
+                <td>safa@gmail.com</td>
+                <td><a href="users.html">Delete</a></td>
+                <td><a href="edit.html">Update</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>lin</td>
+                <td>lin@gmail.com</td>
+                <td><a href="users.html">Delete</a></td>
+                <td><a href="edit.html">Update</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>mustafa</td>
+                <td>mustafa@gmail.com</td>
+                <td><a href="users.html">Delete</a></td>
+                <td><a href="edit.html">Update</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

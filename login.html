@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    
+    <title>Log in</title>
+    <style>
+        .form {
+            width: 280px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <div class="title">
+            <p>Login form:</p>
+        </div>
+        
+        <form action="" method="post" onsubmit="return redirectToHome()">
+            <input type="text" name="name" placeholder="Username" required>
+            <input type="password" name="pass" placeholder="Password" required>
+            <br><br><br><br>
+            
+            <p style="margin-left:30px;">
+                Do not have an account? 
+                <a href="signup.html" style="color: blue; text-decoration: none;">Signup</a>
+            </p> 
+            <button type="submit" name="buttonsubmit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function redirectToHome() {
+            // You can perform your login validation here (if needed)
+            // If login is successful, redirect to home page
+            window.location.href = "home.html";  // Redirect to home page
+            return false;  // Prevent form submission (if you need to handle login first)
+        }
+    </script>
+</body>
+</html>
