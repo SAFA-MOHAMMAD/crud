@@ -7,16 +7,16 @@
     <style>   
         body {
             background:  #f4f4f9; 
-            margin: 0;
+            margin: 0;/*outside space*/
             font-family: Arial, sans-serif;
         }
 
         .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            display: flex;/*cotainer*/
+            align-items: center;/*vertically center*/
+            justify-content: space-between;/*horizontally distribution*/
             background-color: #f4f4f9;
-            padding: 10px 20px;
+            padding: 10px 20px;/*space inside*/
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -41,7 +41,7 @@
         .company-name {
             margin-left: 15px;
             font-size: 24px;
-            color: black; /* Changed to black */
+            color: black;
             font-weight: bold;
         }
 
@@ -51,10 +51,10 @@
         }
 
         .nav a {
-            text-decoration: none;
+            text-decoration: none;/*clean decoration*/
             color: rgb(59, 192, 225);
             font-weight: bold;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease;/*hover timing*/
         }
 
         .nav a:hover {
@@ -69,30 +69,30 @@
 
         .add-user-btn {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: center;/*vertically in the center*/
+            justify-content: center;/*horizontally in the center*/
             width: 50px;
             height: 50px;
-            background-color: green;
+            background-color: #11a111;
             color: white;
-            border-radius: 50%;
+            border-radius: 50%;/*ellipse*/
             font-size: 24px;
             font-weight: bold;
             text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px #0000001a;
             transition: background-color 0.3s ease;
         }
 
         .add-user-btn:hover {
-            background-color: darkgreen;
+            background-color: #036e03;
         }
 
         .endTable {
             width: 80%;
             margin: 20px auto;
-            border-collapse: collapse;
+            border-collapse: collapse;/*only one line for the borders*/
             background: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px #0000001a;
         }
 
         table {
@@ -103,12 +103,12 @@
         th {
             background-color: navy;
             color: white;
-            padding: 10px;
+            padding: 15px ;/*inside space*/
             text-align: center;
         }
 
         td {
-            background-color: #f0f0f0; 
+            background-color: #f8f7f7; 
             color: black;
             text-align: center;
             padding: 10px;
@@ -161,74 +161,74 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+            <tr>
                 <td>1</td>
                 <td>safa</td>
                 <td>safa@gmail.com</td>
-                <td><a href="users.html">Delete</a></td>
+                <td><a href="users.html" style="color: red;">Delete</a></td>
                 <td><a href="edit.html">Edit</a></td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>lin</td>
                 <td>lin@gmail.com</td>
-                <td><a href="users.html">Delete</a></td>
+                <td><a href="users.html"style="color: red;">Delete</a></td>
                 <td><a href="edit.html">Edit</a></td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>mustafa</td>
                 <td>mustafa@gmail.com</td>
-                <td><a href="users.html">Delete</a></td>
+                <td><a href="users.html" style="color: red;">Delete</a></td>
                 <td><a href="edit.html">Edit</a></td>
             </tr>
             <tr>
                 <td>4</td>
                 <td>jad</td>
                 <td>jad@gmail.com</td>
-                <td><a href="users.html">Delete</a></td>
+                <td><a href="users.html" style="color: red;">Delete</a></td>
                 <td><a href="edit.html">Edit</a></td>
             </tr>
             <tr>
                 <td>5</td>
                 <td>mraiam</td>
                 <td>mraiam@gmail.com</td>
-                <td><a href="users.html">Delete</a></td>
+                <td><a href="users.html" style="color: red;">Delete</a></td>
                 <td><a href="edit.html">Edit</a></td>
             </tr>
             <tr>
                 <td>6</td>
                 <td>jean</td>
                 <td>jean@gmail.com</td>
-                <td><a href="users.html">Delete</a></td>
+                <td><a href="users.html" style="color: red;">Delete</a></td>
                 <td><a href="edit.html">Edit</a></td>
             </tr>
             <tr>
                 <td>7</td>
                 <td>sara</td>
                 <td>sara@gmail.com</td>
-                <td><a href="users.html">Delete</a></td>
+                <td><a href="users.html" style="color: red;">Delete</a></td>
                 <td><a href="edit.html">Edit</a></td>
             </tr>
             <tr>
                 <td>8</td>
                 <td>meem</td>
                 <td>meem@gmail.com</td>
-                <td><a href="users.html">Delete</a></td>
+                <td><a href="users.html" style="color: red;">Delete</a></td>
                 <td><a href="edit.html">Edit</a></td>
             </tr>
             <tr>
                 <td>9</td>
                 <td>laana</td>
                 <td>laana@gmail.com</td>
-                <td><a href="users.html">Delete</a></td>
+                <td><a href="users.html" style="color: red;">Delete</a></td>
                 <td><a href="edit.html">Edit</a></td>
             </tr>
             <tr>
                 <td>10</td>
                 <td>neaila</td>
                 <td>neaila@gmail.com</td>
-                <td><a href="users.html">Delete</a></td>
+                <td><a href="users.html" style="color: red;">Delete</a></td>
                 <td><a href="edit.html">Edit</a></td>
             </tr>
             </tbody>
