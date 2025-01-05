@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    
     <title>Log in</title>
     <style>
         .form {
             width: 400px;
-            height: 420px;
+            height: 450px;
         }
     </style>
 </head>
@@ -21,50 +20,43 @@
             <p>Login form:</p>
         </div>
         
-        <form  id="loginForm" method="post">
-            <input type="text" id="email" name="email" placeholder="Email" required>
-            <input type="password" id="pass" name="pass" placeholder="Password" required>
-            <br><br><br><br>
-            
-            <p style="margin-left:22%;">
-                Do not have an account? 
-                <a href="signup.html" style="color: blue; text-decoration: none; margin-left:10px;">Signup</a>
-            </p> 
+        <form id="loginForm" method="post">
+            <input type="text" name="id" id="id" placeholder="ID" required>
+            <input type="text" name="name" id="name" placeholder="Username" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
             <button type="submit" name="buttonsubmit">Login</button>
         </form>
     </div>
 
     <script>
+        // Event listener for form submission
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();  // Prevent default form submission
+            
+            const id = document.getElementById('id').value;
+            const name = document.getElementById('name').value;
+            const password = document.getElementById('password').value;
+            console.log({ id, name, password });
 
-            // Gather login data
-            const loginData = {
-                email: document.getElementById('email').value,
-                password: document.getElementById('pass').value,
-            };
-
-            // Send data to the API for login
-            fetch('api.php?action=adminLogin', {
+            // Send data to the server for validation
+            fetch('api.php?action=loginStudent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(loginData),
+                body: JSON.stringify({ id, name, password })
             })
             .then(response => response.json())
             .then(data => {
                 if (data.status === 'success') {
-                    // Redirect to the admin dashboard or home page
-                    window.location.href = 'users.html';
+                    // If login is successful, redirect to student page with ID
+                    window.location.href = `student.html?id=${data.student.id}`;
                 } else {
-                    alert('Error: ' + data.message);
+                    alert('Invalid credentials');
                 }
             })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred during login.');
-            });
+            .catch(error => console.error('Error:', error));
         });
     </script>
+</body>
 </html>

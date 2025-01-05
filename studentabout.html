@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>about</title>
+    <style>   
+        body {
+            background: # #f4f4f9; 
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f4f4f9;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: 50px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .company-name {
+            margin-left: 15px;
+            font-size: 24px;
+            color: black; /* Changed to black */
+            font-weight: bold;
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: rgb(59, 192, 225);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #333;
+        }
+
+        .endTable {
+            width: 80%;
+            margin: 50px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: navy;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        td {
+            background-color: #f0f0f0; 
+            color: black;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        tr:hover td {
+            background-color: #e0e0e0; 
+        }
+
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo" >
+                <img class="logo" src="https://upload.wikimedia.org/wikipedia/tr/b/ba/%C3%9Csk%C3%BCdar_%C3%9Cniversitesi_logo.png?20220620000225" alt="Description of Image">
+            </div>
+            <div class="company-name">Welcome</div>
+        </div>
+        <nav class="nav">
+            <a href="student.html">Students</a>
+            <a href="studentabout.html">About</a>
+            <a href="index.html" style="color: red;">Logout</a>
+        </nav>
+    </header>
+    <h1>
+        <center> Group members </center>
+    </h1>
+    <table class="endTable">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>210209950</td>
+                <td>SAFA EMAD ISMAIL MOHAMMAD</td>
+            </tr>
+            <tr>
+                <td>210209449</td>
+                <td>Lin Dala</td>
+            </tr>
+            <tr>
+                <td>220209376</td>
+                <td>Mustafa Alsalihi</td>
+            </tr>
+        </tbody>
+</body>
+</html>

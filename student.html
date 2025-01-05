@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Students Page</title>
+    <title>Student Page</title>
     <style>   
         body {
             background:  #f4f4f9; 
@@ -138,15 +138,12 @@
             <div class="company-name">Welcome</div>
         </div>
         <nav class="nav">
-            <a href="users.html">Students</a>
-            <a href="about.html">About</a>
+            <a href="student.html">Students</a>
+            <a href="studentabout.html">About</a>
             <a href="index.html" style="color: red;">Logout</a>
         </nav>
     </header>
-
-    <div class="add-user-container">
-        <a href="create.html" class="add-user-btn">+</a>
-    </div>
+    <br><br><br><br><br><br><br>
 
     <div class="endTable">
         <table>
@@ -156,8 +153,6 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Department</th>
-                    <th>Delete</th>
-                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody id="studentTableBody">
@@ -167,60 +162,33 @@
     </div>
 
     <script>
-        fetch('api.php?action=getStudents')
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                const students = data.data;
-                const tableBody = document.getElementById('studentTableBody');
-                tableBody.innerHTML = ''; // Clear existing rows
-                students.forEach(student => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${student.id}</td>
-                        <td>${student.name}</td>
-                        <td>${student.email}</td>
-                        <td>${student.department}</td>
-                        <td><a href="#" style="color: red;" data-id="${student.id}">Delete</a></td>
-                        <td><a href="edit.html?id=${student.id}">Edit</a></td>
-                    `;
-                    tableBody.appendChild(row);
-                });                
-            } else {
-                console.error('Error fetching students:', data.message);
-            }
-        })
-        .catch(error => console.error('Error:', error));
+        // Extract the student ID from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const studentId = urlParams.get('id');
 
-
-
-
-    //delete function
-    document.getElementById('studentTableBody').addEventListener('click', function (event) {
-        if (event.target.tagName === 'A' && event.target.textContent === 'Delete') {
-            event.preventDefault();
-            const studentId = event.target.getAttribute('data-id');
-            fetch('api.php?action=deleteStudent', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ id: studentId }),
-            })
+        // Fetch the student details using the ID
+        fetch(`api.php?action=getStudent&id=${studentId}`)
             .then(response => response.json())
             .then(data => {
                 if (data.status === 'success') {
-                    alert('Student deleted successfully');
-                    location.reload(); // Refresh the page to update the table
+                    const student = data.data;
+                    const tableBody = document.getElementById('studentTableBody');
+
+                    // Create a new row with the student's details
+                    const row = `
+                        <tr>
+                            <td>${student.id}</td>
+                            <td>${student.name}</td>
+                            <td>${student.email}</td>
+                            <td>${student.department}</td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML = row;
                 } else {
-                    alert('Error deleting student: ' + data.message);
+                    alert('Error fetching student details: ' + data.message);
                 }
             })
             .catch(error => console.error('Error:', error));
-        }
-    });
-    
-</script>
-
+    </script>
 </body>
 </html>

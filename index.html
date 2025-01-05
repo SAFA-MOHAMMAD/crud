@@ -20,21 +20,29 @@
         }
 
         .form {
+            padding: 80px;
+            padding-left: 100px;
+            padding-right: 100px;
+
             text-align: center;
             background-color: white;
-            padding: 60px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        .form p{
+            font-size: 25px;
+            color: #333;
+            margin-bottom: 10px;
+        }
 
         .title p {
-            font-size: 24px;
+            font-size: 100px;
             color: #333;
             margin-bottom: 30px;
         }
 
         h1 {
-            font-size: 20px;
+            font-size: 30px;
             color: #333;
             margin: 20px 0;
         }
@@ -42,9 +50,9 @@
         .btn {
             display: inline-block;
             padding: 20px 30px;
-            font-size: 16px;
+            font-size: 20px;
             color: white;
-            background-color: #4CAF50;
+            background-color: #3bc0e1;
             border: none;
             border-radius: 5px;
             text-decoration: none;
@@ -53,22 +61,22 @@
         }
 
         .btn:hover {
-            background-color: #45a049;
+            background-color:#18abd0;
         }
     </style>
 </head>
 <body>
     <div class="form">
         <div class="title">
-            <p>Log in as : </p>
+            <h1>Log in as : </h1>
         </div>
         <div>
-            <h1>Admin</h1>
+            <p>Admin </p>
             <a href="login.html" class="btn">Admin Login</a>
         </div>
         <div>
-            <h1>Students</h1>
-            <a href="login.html" class="btn">Students Login</a>
+            <p>Students</p>
+            <a href="studentlogin.html" class="btn">Students Login</a>
         </div>
     </div>
 </body>

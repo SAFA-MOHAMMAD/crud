@@ -29,30 +29,36 @@ body{
     -1px -1px 2px rgba(180,180,180,0.3);
     transform: translateY(50px);
     display: block;
-    margin: 15px auto 0px auto;
+    margin: 40px auto 0px auto;
     height: 30px;
     width: 80%;
+    padding: 5%;
     border-radius: 2px;
     text-align: center;
+    font-size: 17px;
+
 }
 input:focus{
     outline: none;
 }
-.form button[type="submit"]{
-    margin-top: 30px;
-    background: rgb(59, 192, 225);
-    width: 77%;
-    height: 30px;
+form button[type="submit"] {
+    margin-top: 35px;
+    padding: 0; /* Remove extra padding */
+    background: #3bc0e1;
+    width: 80%;
+    height: 50px; /* Adjust height for better alignment */
     position: absolute;
-    top:40%;
+    top: 70%;
     left: 11%;
     border-radius: 2px;
     color: rgb(252, 251, 251);
-    border: 5px;
-    font-size: 17px;
-    transform: translateY(100px);
+    border: none; /* Remove unnecessary border */
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px; /* Match line-height to height for vertical centering */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 ::placeholder{
   position: relative;
   left: 20px;
