@@ -32,6 +32,7 @@
 
         .form-container .input-box {
             margin-bottom: 15px;
+            position: relative;
         }
 
         .form-container label {
@@ -46,6 +47,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         .form-container select {
             width: 105%;
             padding: 10px 10px;
@@ -81,13 +83,31 @@
         .form-container .back-link a:hover {
             text-decoration: underline;
         }
+
+        .form-container .toggle-password {
+            position: absolute;
+            top: 70%;
+            left: 360px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #888;
+            font-size: 40px; /* Increase the size of the icon */
+            line-height: 1; /* Adjust line height */
+            padding: 10px; /* Add some padding for a larger clickable area */
+        }
+    
+
+        .form-container .toggle-password:hover {
+            color: #555;
+        }
+        
     </style>
 </head>
 <body>
     <div class="form-container">
         <h1>Edit Student</h1>
         <form id="studentForm">
-            <input type="hidden" id="id" name="id">
+            <input type="number" id="id" name="id" hidden>
             <div class="input-box">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter name" required>
@@ -104,11 +124,13 @@
                     <option value="Engineering">Engineering</option>
                     <option value="Business">Business</option>
                     <option value="Arts">Arts</option>
+                    <option value="Sciences">Sciences</option>
                 </select>
             </div>
             <div class="input-box">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Enter password" required>
+                <span class="toggle-password" id="togglePassword">&#128065;</span>
             </div>
             <button type="submit">Edit Student</button>
         </form>
@@ -120,7 +142,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const studentId = urlParams.get('id');
         document.getElementById('id').value = studentId;
-    
+
         // Fetch existing student details
         fetch(`api.php?action=getStudent&id=${studentId}`)
             .then(response => response.json())
@@ -130,16 +152,17 @@
                     document.getElementById('name').value = student.name;
                     document.getElementById('email').value = student.email;
                     document.getElementById('department').value = student.department;
+                    document.getElementById('password').value = student.password;
                 } else {
                     alert('Error fetching student details: ' + data.message);
                 }
             })
             .catch(error => console.error('Error:', error));
-    
+
         // Handle form submission
         document.getElementById('studentForm').addEventListener('submit', function (event) {
             event.preventDefault();
-    
+
             const studentData = {
                 id: studentId,
                 name: document.getElementById('name').value,
@@ -147,7 +170,7 @@
                 department: document.getElementById('department').value,
                 password: document.getElementById('password').value
             };
-    
+
             fetch('api.php?action=updateStudent', {
                 method: 'POST',
                 headers: {
@@ -166,7 +189,16 @@
                 })
                 .catch(error => console.error('Error:', error));
         });
+
+        // Toggle password visibility
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+            togglePassword.textContent = type === 'password' ? '\u{1F441}' : '\u{1F441}'; // Eye icon
+        });
     </script>
-    
 </body>
 </html>

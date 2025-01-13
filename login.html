@@ -43,6 +43,7 @@
                 email: document.getElementById('email').value,
                 password: document.getElementById('pass').value,
             };
+            console.log(loginData)
 
             // Send data to the API for login
             fetch('api.php?action=adminLogin', {
