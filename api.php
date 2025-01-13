@@ -55,7 +55,7 @@ function getStudents($conn)
     $result = $conn->query($query);
 
     if ($result) {
-        $students = $result->fetch_all(MYSQLI_ASSOC);
+        $students = $result->fetch_all(MYSQLI_ASSOC);//coveret it to an multi-demition array
         echo json_encode(['status' => 'success', 'data' => $students]);
     } else {
         echo json_encode(['status' => 'error', 'message' => 'Failed to retrieve students: ' . $conn->error]);
@@ -66,13 +66,13 @@ function getStudents($conn)
 function getStudent($conn)
 {
     if (isset($_GET['id'])) {
-        $id = $conn->real_escape_string($_GET['id']);
+        $id = $conn->real_escape_string($_GET['id']);//super gloabl array gets data from URL
         $query = "SELECT * FROM students WHERE id = $id";
         $result = $conn->query($query);
 
         if ($result && $result->num_rows > 0) {
             $student = $result->fetch_assoc();
-            echo json_encode(['status' => 'success', 'data' => $student]);
+            echo json_encode(['status' => 'success', 'data' => $student]);//send the data to the browser
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Student not found']);
         }
@@ -85,7 +85,7 @@ function getStudent($conn)
 // Function to update a student
 function updateStudent($conn)
 {
-    $data = json_decode(file_get_contents('php://input'), true);
+    $data = json_decode(file_get_contents('php://input'), true);//to read the data from the request body
 
     if (isset($data['id'], $data['name'], $data['email'], $data['department'], $data['password'])) {
         $id = $conn->real_escape_string($data['id']);
@@ -187,7 +187,7 @@ function deleteStudent($conn)
     $data = json_decode(file_get_contents('php://input'), true);
 
     if (isset($data['id'])) {
-        $id = $conn->real_escape_string($data['id']);
+        $id = $conn->real_escape_string($data['id']);//prevent attacks
         $query = "DELETE FROM students WHERE id=$id";
         if ($conn->query($query)) {
             echo json_encode(['status' => 'success', 'message' => 'Student deleted successfully']);

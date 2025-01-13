@@ -172,11 +172,11 @@
             };
 
             fetch('api.php?action=updateStudent', {
-                method: 'POST',
+                method: 'POST',//for sending data to the sever 
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',//teling the server that im going to send a jason data
                 },
-                body: JSON.stringify(studentData),
+                body: JSON.stringify(studentData),// change the data into jason format 
             })
                 .then(response => response.json())
                 .then(data => {

@@ -130,12 +130,12 @@
             };
 
             // Send data to the API
-            fetch('api.php?action=createStudent', {
-                method: 'POST',
-                headers: {
+            fetch('api.php?action=createStudent', {//URl, method
+                method: 'POST',//send data to the server 
+                headers: {//spicify the data type
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(formData),//send the data as json format
             })
             .then(response => response.json())
             .then(data => {
